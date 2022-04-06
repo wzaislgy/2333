@@ -1,0 +1,79 @@
+#include<stdio.h>
+int main()
+{
+	 char a[]={"1+2+2+1+2+5+4-1-3+4-8"};
+	 char d[]={"2*2/4*1/1*2*3/2"};
+	 char g[]={"2+2*3+2/2-1"};
+	 int e=d[0]-'0';
+ 	 int b=a[0]-'0';
+	 int n=g[0]-'0';
+	 int c,i,f,j,k,l,h,m;
+	 for(i=1;i<=21;i++)
+	 {
+		 if(a[i]=='+')
+		 {
+			 c=a[i+1]-'0';
+			 b=b+c;
+			 i++;
+		 }
+		 else if(a[i]=='-')
+		 {
+			 c=a[i+1]-'0';
+			 b=b-c;
+			 i++;
+		 }
+	 }
+	printf("v1=%d\n",b);
+
+
+	for(j=1;j<=15;j++)
+	 {
+		 if(d[j]=='*')
+		 {
+			 f=d[j+1]-'0';
+			 e=e*f;
+			 j++;
+		 }
+		 else if(d[j]=='/')
+		 {
+			 f=d[j+1]-'0';
+			 e=e/f;
+			 j++;
+		 }
+	 }
+	printf("v2=%d\n",e);
+
+
+	for(k=1;k<=11;k++)
+	{
+		switch(g[k])
+		{
+			case'*':h=(g[k-1]-'0')*(g[k+1]-'0');break;
+			case'/':m=(g[k-1]-'0')/(g[k+1]-'0');break;
+		}
+	}
+	for(k=1;k<=11;k++)
+	{
+		switch(g[k])
+		{
+		case'+':if(g[k+2]=='*'||g[k+2]=='/')
+			   {
+			   }
+			else
+			{
+				l=g[k+1]-'0';
+				n=n+l;
+			}
+		case'-':if(g[k+2]=='*'||g[k+2]=='/')
+			   {
+			   }
+			else
+			{
+				l=g[k+1]-'0';
+				n=n-l;
+			}
+		}
+	}
+	printf("v3=%d\n",l+h+m);
+	return 0;
+}
